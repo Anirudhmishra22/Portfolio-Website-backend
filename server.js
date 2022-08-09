@@ -16,9 +16,8 @@ app.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
 
-
-/**POST*/
 app.post("/form", (request, response) => {
+    console.log("Requested",request.body)
     collection = database.collection("portfolio");
     collection.insert(request.body, (error, result) => {
         if(error) {
@@ -27,26 +26,7 @@ app.post("/form", (request, response) => {
         response.send(result.result);
     });
 });
-// app.post("/restaurant", (request, response) => {
-//     collection.insert(request.body, (error, result) => {
-//         if(error) {
-//             return response.status(500).send(error);
-//         }
-//         response.send(result.result);
-//     });
-// });
 
-
-/**GET*/
-// app.get("/restaurant", (request, response) => {
-//     collection.find({}).toArray((error, result) => {
-//         if(error) {
-//             return response.status(500).send(error);
-//         }
-//         response.send(result);
-//     });
-// });
-/**GET*/
 app.get("/formdata", (request, response) => {
     collection = database.collection("portfolio");
     collection.find({}).toArray((error, result) => {
@@ -57,15 +37,7 @@ app.get("/formdata", (request, response) => {
     });
 });
 
-/**GET:ID*/
-// app.get("/restaurant/:id", (request, response) => {
-//     collection.findOne({ "_id": new ObjectId(request.params.id) }, (error, result) => {
-//         if(error) {
-//             return response.status(500).send(error);
-//         }
-//         response.send(result);
-//     });
-// });
+
 
 
 app.listen(PORT, () => {
