@@ -8,6 +8,9 @@ const DATABASE_NAME = "form-data";
 
 var app = Express();
 
+let cors = require('cors')
+app.use(cors())
+
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
 
