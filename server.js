@@ -74,7 +74,7 @@ app.listen(PORT, () => {
             throw error;
         }
         database = client.db(DATABASE_NAME);
-        collection = database.collection("iwp");
+        collection = database.collection("form-data");
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 });
