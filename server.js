@@ -7,7 +7,7 @@ const CONNECTION_URL = "mongodb+srv://anirudh:anirudh@cluster0.51f7jvs.mongodb.n
 const DATABASE_NAME = "form-data";
 
 var app = Express();
-
+const PORT = process.env.PORT || 80;
 let cors = require('cors')
 app.use(cors())
 
@@ -68,7 +68,7 @@ app.get("/formdata", (request, response) => {
 // });
 
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) {
             throw error;
